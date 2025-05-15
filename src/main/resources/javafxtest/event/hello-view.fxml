@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="javafxtest.event.HelloController"
+            prefHeight="600" prefWidth="800"
+            style="-fx-background-color: #f0f2f5;">
+
+    <!-- En-tête (Header) -->
+    <top>
+        <HBox style="-fx-background-color: #3b5998; -fx-padding: 10px; -fx-spacing: 10px;" alignment="CENTER_LEFT">
+            <Label text="Système de Gestion d'Événements" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="18"/>
+                </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Connexion" style="-fx-background-color: white; -fx-text-fill: #3b5998;"/>
+        </HBox>
+    </top>
+
+    <!-- Menu latéral (Sidebar) -->
+    <left>
+        <VBox spacing="5" style="-fx-background-color: #f0f2f5; -fx-padding: 10px;">
+            <Button text="Tableau de bord" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
+            <Button text="Événements" prefWidth="150" style="-fx-background-color: #3b5998; -fx-text-fill: white;"/>
+            <Button text="Participants" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
+            <Button text="Organisateurs" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
+            <Button text="Notifications" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
+            <Button text="Rapports" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
+        </VBox>
+    </left>
+
+    <!-- Contenu principal -->
+    <center>
+        <StackPane>
+            <!-- Contenu de base -->
+            <VBox style="-fx-background-color: white; -fx-padding: 15px; -fx-spacing: 10px;">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Gestion des Événements" style="-fx-font-weight: bold; -fx-font-size: 16;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="+ Nouvel Événement" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </HBox>
+                <Label text="Liste des événements actuels et à venir" style="-fx-font-style: italic;"/>
+
+                <TableView VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn text="Nom" prefWidth="200"/>
+                        <TableColumn text="Date" prefWidth="150"/>
+                        <TableColumn text="Lieu" prefWidth="150"/>
+                        <TableColumn text="Actions" prefWidth="100"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+
+                <VBox style="-fx-background-color: #f5f5f5; -fx-padding: 10px; -fx-border-color: #ddd; -fx-border-width: 1;">
+                    <Label text="Notifications récentes" style="-fx-font-weight: bold;"/>
+                    <Label text="• Nouveau participant à l'événement 'Atelier POO' (il y a 5 min)" style="-fx-padding: 5 0 0 0;"/>
+                </VBox>
+            </VBox>
+
+            <!-- Popup pour créer un nouvel événement -->
+<!--            <VBox alignment="CENTER">-->
+<!--                <StackPane style="-fx-background-color: rgba(0,0,0,0.5);" visible="true">-->
+<!--                    <VBox style="-fx-background-color: white; -fx-padding: 20px; -fx-spacing: 15; -fx-max-width: 400; -fx-border-color: #ddd; -fx-border-width: 1;">-->
+<!--                        <Label text="Créer un nouvel événement" style="-fx-font-size: 16; -fx-font-weight: bold;"/>-->
+
+<!--                        <VBox spacing="5">-->
+<!--                            <Label text="Type d'événement :"/>-->
+<!--                            <ComboBox promptText="Sélectionner..." prefWidth="360"/>-->
+<!--                        </VBox>-->
+
+<!--                        <VBox spacing="5">-->
+<!--                            <Label text="Nom :"/>-->
+<!--                            <TextField prefWidth="360"/>-->
+<!--                        </VBox>-->
+
+<!--                        <VBox spacing="5">-->
+<!--                            <Label text="Date et heure :"/>-->
+<!--                            <TextField prefWidth="360"/>-->
+<!--                        </VBox>-->
+
+<!--                        <VBox spacing="5">-->
+<!--                            <Label text="Lieu :"/>-->
+<!--                            <TextField prefWidth="360"/>-->
+<!--                        </VBox>-->
+
+<!--                        <VBox spacing="5">-->
+<!--                            <Label text="Capacité maximale :"/>-->
+<!--                            <TextField prefWidth="360"/>-->
+<!--                        </VBox>-->
+
+<!--                        <HBox spacing="10" alignment="CENTER_RIGHT">-->
+<!--                            <Button text="Annuler" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>-->
+<!--                            <Button text="Créer" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>-->
+<!--                        </HBox>-->
+<!--                    </VBox>-->
+<!--                </StackPane>-->
+<!--            </VBox>-->
+        </StackPane>
+    </center>
+</BorderPane>
