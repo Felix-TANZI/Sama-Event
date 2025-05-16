@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.FXCollections ?>
+<?import java.lang.String ?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx"  xmlns:fx="http://javafx.com/fxml" fx:controller="javafxtest.event.MainController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox style="-fx-background-color: #303F9F;" alignment="CENTER_LEFT">
+                    <children>
+                        <Label text="Système de Gestion d'Événements" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" text="Connexion" style="-fx-background-color: white;">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+                <Label text="Création d'un nouvel événement" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="15.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label text="Type d'événement:" prefWidth="150.0" />
+                        <ComboBox prefWidth="200.0" promptText="Sélectionnez un type">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Conférence" />
+                                    <String fx:value="Concert" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label text="Nom:" prefWidth="150.0" />
+                        <TextField prefWidth="400.0" promptText="Nom de l'événement" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label text="Date et heure:" prefWidth="150.0" />
+                        <DatePicker prefWidth="200.0" promptText="Date" />
+                        <ComboBox prefWidth="100.0" promptText="Heure">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="09:00" />
+                                    <String fx:value="10:00" />
+                                    <String fx:value="11:00" />
+                                    <String fx:value="12:00" />
+                                    <String fx:value="13:00" />
+                                    <String fx:value="14:00" />
+                                    <String fx:value="15:00" />
+                                    <String fx:value="16:00" />
+                                    <String fx:value="17:00" />
+                                    <String fx:value="18:00" />
+                                    <String fx:value="19:00" />
+                                    <String fx:value="20:00" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label text="Lieu:" prefWidth="150.0" />
+                        <TextField prefWidth="400.0" promptText="Lieu de l'événement" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label text="Capacité maximale:" prefWidth="150.0" />
+                        <TextField prefWidth="100.0" promptText="Nombre" />
+                    </children>
+                </HBox>
+
+                <!-- Champs spécifiques à une conférence -->
+                <VBox fx:id="conferenceFields" spacing="10.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label text="Thème:" prefWidth="150.0" />
+                                <TextField prefWidth="400.0" promptText="Thème de la conférence" />
+                            </children>
+                        </HBox>
+                        <Label text="Intervenants:" />
+                        <HBox spacing="10.0">
+                            <children>
+                                <TableView prefHeight="150.0" prefWidth="550.0">
+                                    <columns>
+                                        <TableColumn prefWidth="150.0" text="ID" />
+                                        <TableColumn prefWidth="200.0" text="Nom" />
+                                        <TableColumn prefWidth="200.0" text="Spécialité" />
+                                    </columns>
+                                </TableView>
+                                <VBox spacing="5.0">
+                                    <children>
+                                        <Button mnemonicParsing="false" prefWidth="100.0" text="Ajouter" />
+                                        <Button mnemonicParsing="false" prefWidth="100.0" text="Modifier" />
+                                        <Button mnemonicParsing="false" prefWidth="100.0" text="Supprimer" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <!-- Champs spécifiques à un concert -->
+                <VBox fx:id="concertFields" spacing="10.0" visible="false">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label text="Artiste:" prefWidth="150.0" />
+                                <TextField prefWidth="400.0" promptText="Nom de l'artiste ou du groupe" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label text="Genre musical:" prefWidth="150.0" />
+                                <ComboBox prefWidth="200.0" promptText="Sélectionnez un genre">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Rock" />
+                                            <String fx:value="Pop" />
+                                            <String fx:value="Jazz" />
+                                            <String fx:value="Classique" />
+                                            <String fx:value="Électronique" />
+                                            <String fx:value="Hip-Hop" />
+                                            <String fx:value="Autre" />
+                                        </FXCollections>
+                                    </items>
+                                </ComboBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="15.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" style="-fx-background-color: #f44336;" text="Annuler" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: #4CAF50;" text="Enregistrer" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+        </HBox>
+    </bottom>
+</BorderPane>
