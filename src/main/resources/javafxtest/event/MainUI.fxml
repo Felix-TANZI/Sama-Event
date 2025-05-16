@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
+<!--        Projet : Sama-Event-->
+<!--        @Auteur : NZIKO Felix Andre-->
+<!--        Email : tanzifelix@gmail.com-->
+<!--        version : beta 1.0-->
+
+<!--        Instagram : felix.tanzi-->
+<!--        GitHub : Felix-TANZI-->
+<!--        Linkedin : Felix TANZI-->
+
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -7,7 +18,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="javafxtest.event.HelloController"
+            fx:controller="javafxtest.event.MainController"
             prefHeight="600" prefWidth="800"
             style="-fx-background-color: #f0f2f5;">
 
