@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--        Projet : Sama-Event-->
+<!--        @Auteur : NZIKO Felix Andre-->
+<!--        Email : tanzifelix@gmail.com-->
+<!--        version : beta 1.0-->
+<!--        Instagram : felix.tanzi-->
+<!--        GitHub : Felix-TANZI-->
+<!--        Linkedin : Felix TANZI-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxtest.event.ParticipantController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" style="-fx-background-color: #303F9F;">
+                    <children>
+                        <Label text="Système de Gestion d'Événements" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: white;" text="Connexion">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <left>
+        <VBox spacing="5" style="-fx-background-color: #f0f2f5; -fx-padding: 10px;">
+            <Button fx:id="boutonTableau" onAction="#tableau" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Tableau de bord" />
+            <Button fx:id="boutonEvenement" onAction="#evenement" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Événements">
+                <graphic>
+                    <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@Image/evenement.png" />
+                        </image>
+                    </ImageView>
+                </graphic></Button>
+            <Button fx:id="boutonParticipants" onAction="#participants" prefWidth="150" style="-fx-background-color: #3b5998; -fx-text-fill: white;" text="Participants">
+                <graphic>
+                    <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@Image/personne1.png" />
+                        </image>
+                    </ImageView>
+                </graphic></Button>
+            <Button fx:id="boutonOrganisateurs" onAction="#organisateurs" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Organisateurs">
+                <graphic>
+                    <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@Image/personne.png" />
+                        </image>
+                    </ImageView>
+                </graphic></Button>
+            <Button fx:id="boutonNotification" onAction="#notification" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Notifications">
+                <graphic>
+                    <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@Image/notification.png" />
+                        </image>
+                    </ImageView>
+                </graphic></Button>
+            <Button fx:id="boutonRapport" onAction="#rapport" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Rapports">
+                <graphic>
+                    <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@Image/rapport.png" />
+                        </image>
+                    </ImageView>
+                </graphic></Button>
+        </VBox>
+    </left>
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label text="Gestion des Participants" textAlignment="CENTER">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="boutonAjoutParticipant" mnemonicParsing="false" onAction="#AjoutParticipant" style="-fx-background-color: #4CAF50;" text="Ajouter un participant" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Image/ajoutPersonne.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label text="Événement:" />
+                        <ComboBox fx:id="comboBoxEvenement" prefWidth="300.0" promptText="Sélectionnez un événement" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="textfieldRecherche" prefWidth="200.0" promptText="Rechercher un participant..." />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="5.0" />
+                    </VBox.margin>
+                </HBox>
+                <TableView fx:id="tableview" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="idTableColonne" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="nomTableColonne" prefWidth="150.0" text="Nom" />
+                        <TableColumn fx:id="emailTableColonne" prefWidth="200.0" text="Email" />
+                        <TableColumn prefWidth="150.0" text="Type" />
+                        <TableColumn prefWidth="150.0" text="Actions" />
+                    </columns>
+                    <VBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="5.0" />
+                    </VBox.margin>
+                </TableView>
+                <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                    <children>
+                        <Label text="Total participants:" />
+                        <Label style="-fx-font-weight: bold;" text="0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="0.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #E8EAF6;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Notifications récentes:">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label text="Nouveau participant à l'événement 'Atelier POO' (il y a 5 min)" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>

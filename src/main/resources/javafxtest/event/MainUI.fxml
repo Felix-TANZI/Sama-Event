@@ -1,70 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <!--        Projet : Sama-Event-->
 <!--        @Auteur : NZIKO Felix Andre-->
 <!--        Email : tanzifelix@gmail.com-->
 <!--        version : beta 1.0-->
-
 <!--        Instagram : felix.tanzi-->
 <!--        GitHub : Felix-TANZI-->
 <!--        Linkedin : Felix TANZI-->
 
-
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="javafxtest.event.MainController"
-            prefHeight="600" prefWidth="800"
-            style="-fx-background-color: #f0f2f5;">
+<BorderPane prefHeight="600" prefWidth="800" style="-fx-background-color: #f0f2f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxtest.event.MainController">
 
-    <!-- En-tête (Header) -->
+
     <top>
-        <HBox style="-fx-background-color: #3b5998; -fx-padding: 10px; -fx-spacing: 10px;" alignment="CENTER_LEFT">
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #3b5998; -fx-padding: 10px; -fx-spacing: 10px;">
             <Label text="Système de Gestion d'Événements" textFill="WHITE">
                 <font>
-                    <Font name="System Bold" size="18"/>
+                    <Font name="System Bold" size="18" />
                 </font>
             </Label>
-            <Region HBox.hgrow="ALWAYS"/>
-            <Button text="Connexion" style="-fx-background-color: white; -fx-text-fill: #3b5998;"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button style="-fx-background-color: white; -fx-text-fill: #3b5998;" text="Connexion" />
         </HBox>
     </top>
 
-    <!-- Menu latéral (Sidebar) -->
+
     <left>
         <VBox spacing="5" style="-fx-background-color: #f0f2f5; -fx-padding: 10px;">
-            <Button text="Tableau de bord" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
-            <Button text="Événements" prefWidth="150" style="-fx-background-color: #3b5998; -fx-text-fill: white;"/>
-            <Button text="Participants" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
-            <Button text="Organisateurs" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
-            <Button text="Notifications" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
-            <Button text="Rapports" prefWidth="150" style="-fx-background-color: #dfe3ee;"/>
+            <Button fx:id="boutonTableau" onAction="#tableau" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Tableau de bord" />
+            <Button fx:id="boutonEvenements" onAction="#evenements" prefWidth="150" style="-fx-background-color: #3b5998; -fx-text-fill: white;" text="Événements">
+            <graphic>
+               <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@Image/evenement2.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+            <Button fx:id="boutonParticipants" onAction="#participants" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Participants">
+            <graphic>
+               <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@Image/personne.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+            <Button fx:id="boutonOrganisateurs" onAction="#Organisateurs" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Organisateurs">
+            <graphic>
+               <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@Image/personne.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+            <Button fx:id="boutonNotifications" onAction="#Notifications" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Notifications">
+            <graphic>
+               <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@Image/notification.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+            <Button fx:id="boutonRapports" onAction="#rapports" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Rapports">
+            <graphic>
+               <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@Image/rapport.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
         </VBox>
     </left>
 
-    <!-- Contenu principal -->
+
     <center>
         <StackPane>
-            <!-- Contenu de base -->
+
             <VBox style="-fx-background-color: white; -fx-padding: 15px; -fx-spacing: 10px;">
                 <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Label text="Gestion des Événements" style="-fx-font-weight: bold; -fx-font-size: 16;"/>
-                    <Region HBox.hgrow="ALWAYS"/>
-                    <Button text="+ Nouvel Événement" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16;" text="Gestion des Événements" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button fx:id="boutonAjoutEvenement" onAction="#AjoutEvenement" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text=" Nouvel Événement">
+                  <graphic>
+                     <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@Image/ajoutEvenement.png" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
                 </HBox>
-                <Label text="Liste des événements actuels et à venir" style="-fx-font-style: italic;"/>
+                <Label style="-fx-font-style: italic;" text="Liste des événements actuels et à venir" />
 
-                <TableView VBox.vgrow="ALWAYS">
+                <TableView fx:id="tableViewEvenement" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn text="Nom" prefWidth="200"/>
-                        <TableColumn text="Date" prefWidth="150"/>
-                        <TableColumn text="Lieu" prefWidth="150"/>
-                        <TableColumn text="Actions" prefWidth="100"/>
+                        <TableColumn fx:id="nomTableColonne" prefWidth="200" text="Nom" />
+                        <TableColumn fx:id="dateTableColonne" prefWidth="150" text="Date" />
+                        <TableColumn fx:id="lieuTableColonne" prefWidth="150" text="Lieu" />
+                        <TableColumn fx:id="actionsTableColonne" prefWidth="100" text="Actions" />
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY" />
@@ -72,8 +115,8 @@
                 </TableView>
 
                 <VBox style="-fx-background-color: #f5f5f5; -fx-padding: 10px; -fx-border-color: #ddd; -fx-border-width: 1;">
-                    <Label text="Notifications récentes" style="-fx-font-weight: bold;"/>
-                    <Label text="• Nouveau participant à l'événement 'Atelier POO' (il y a 5 min)" style="-fx-padding: 5 0 0 0;"/>
+                    <Label style="-fx-font-weight: bold;" text="Notifications récentes" />
+                    <Label style="-fx-padding: 5 0 0 0;" text="• Nouveau participant à l'événement 'Atelier POO' (il y a 5 min)" />
                 </VBox>
             </VBox>
 
