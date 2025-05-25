@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Conference extends Evenement {
     private String theme;
     private List<Intervenant> intervenants;

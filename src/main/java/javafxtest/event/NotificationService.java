@@ -11,6 +11,7 @@ package javafxtest.event;
    Linkedin : Felix TANZI
 */
 
+
 public interface NotificationService {
 //    Notons que, ici 'message' represente le message a envoyer
     void envoieNotification(String message);

@@ -7,7 +7,6 @@ module javafxtest.event {
     requires org.slf4j;
     requires org.slf4j.simple;
 
-
     opens javafxtest.event to javafx.fxml;
     exports javafxtest.event;
 }

@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 public class ConnexionBD {
     // URL de connexion à la base MySQL : on précise le nom de la base, l'hôte et le port
     private static final String URL = "jdbc:mysql://127.0.0.1:3307/eventbd";

@@ -108,6 +108,7 @@ public class AjoutEvenementController {
 
     }
 
+
     @FXML
     public void initialize() {
         // Masquer les deux sections au démarrage

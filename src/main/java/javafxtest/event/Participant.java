@@ -11,6 +11,7 @@ package javafxtest.event;
    Linkedin : Felix TANZI
 */
 
+
 public class Participant {
     protected String idParticipant;
     protected String nom;
