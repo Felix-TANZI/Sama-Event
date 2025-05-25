@@ -4,7 +4,6 @@
 <!--        @Auteur : NZIKO Felix Andre-->
 <!--        Email : tanzifelix@gmail.com-->
 <!--        version : beta 1.0-->
-
 <!--        Instagram : felix.tanzi-->
 <!--        GitHub : Felix-TANZI-->
 <!--        Linkedin : Felix TANZI-->
@@ -14,11 +13,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx"  xmlns:fx="http://javafx.com/fxml" fx:controller="javafxtest.event.AjoutParticipantController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="javafxtest.event.AjoutOrganisateurController">
     <top>
         <HBox style="-fx-background-color: #303F9F;" alignment="CENTER">
             <children>
-                <Label text="Inscription d'un participant" textFill="WHITE">
+                <Label text="Inscription d'un organisateur" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -35,45 +34,34 @@
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <children>
                         <Label text="Événement:" prefWidth="120.0" />
-                        <ComboBox prefWidth="350.0" promptText="Sélectionnez un événement" HBox.hgrow="ALWAYS" />
+                        <ComboBox fx:id="comboBoxEvenement" prefWidth="350.0" promptText="Sélectionnez un événement" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
                 <Separator />
-                <Label text="Informations du participant:">
+                <Label text="Informations de l'organisateur:">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <children>
-                        <Label text="Type:" prefWidth="120.0" />
-                        <RadioButton mnemonicParsing="false" selected="true" text="Participant standard">
-                            <toggleGroup>
-                                <ToggleGroup fx:id="typeParticipant" />
-                            </toggleGroup>
-                        </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Organisateur" toggleGroup="$typeParticipant" />
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER_LEFT" spacing="10.0">
-                    <children>
                         <Label text="ID:" prefWidth="120.0" />
-                        <TextField promptText="Identifiant unique" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="textFieldId" promptText="Identifiant unique" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <children>
                         <Label text="Nom:" prefWidth="120.0" />
-                        <TextField promptText="Nom complet" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="textFieldNom" promptText="Nom complet" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <children>
                         <Label text="Email:" prefWidth="120.0" />
-                        <TextField promptText="Adresse email" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="textFieldEmail" promptText="Adresse email" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
-                <CheckBox mnemonicParsing="false" text="Envoyer une notification de confirmation par email">
+                <CheckBox fx:id="checkBoxNotification" mnemonicParsing="false" text="Envoyer une notification de confirmation par email">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
@@ -87,12 +75,12 @@
     <bottom>
         <HBox alignment="CENTER_RIGHT" spacing="15.0" BorderPane.alignment="CENTER">
             <children>
-                <Button mnemonicParsing="false" style="-fx-background-color: #f44336;" text="Annuler" textFill="WHITE">
+                <Button fx:id="boutonAnnuler" mnemonicParsing="false" style="-fx-background-color: #f44336;" text="Annuler" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: #4CAF50;" text="Inscrire" textFill="WHITE">
+                <Button fx:id="boutonInscrire" mnemonicParsing="false" style="-fx-background-color: #4CAF50;" text="Inscrire" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>

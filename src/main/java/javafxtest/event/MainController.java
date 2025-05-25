@@ -86,16 +86,49 @@ public class MainController {
 
     @FXML
     void Organisateurs(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrganisateurUI.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = (Stage) boutonOrganisateurs.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Organisateurs");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @FXML
     void evenements(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainUI.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = (Stage) boutonEvenements.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Evenement");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @FXML
     void participants(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ParticipantUI.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = (Stage) boutonParticipants.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Participants");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

@@ -6,13 +6,8 @@ Pré-requis 🔧
 - Comprendre le [java](https://fr.wikipedia.org/wiki/Apprentissage_profond)
 ---
 Telechargement d'icons
-- icon.(https://fonts.google.com/icons)
+- icon [icon](https://fonts.google.com/icons)
 ---
-Me Contacter
--[intagram](https://www.instagram.com/felix.tanzi/)
--[likedin](https://www.linkedin.com/in/𝐅é𝐥𝐢𝐱-𝐓𝐀𝐍𝐙𝐈-7809b025a)
--[github](https://github.com/Felix-TANZI)
--[gmail](mailto:tanzifelix@gmail.com)
 
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNW5zMGgzNDFzZHNtdXEwNmRzcW10NHR6b2RsbThhenUyZjdsNTFoMCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/LeIqgheV7yKJkUaecT/giphy.gif" width="40"> Connectons-nous !
 <div align="center">
@@ -31,6 +26,3 @@ Me Contacter
   </a>
 </div>
 <br>
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=Felix-TANZI&&style=flat-square" align="center" />
-</div>

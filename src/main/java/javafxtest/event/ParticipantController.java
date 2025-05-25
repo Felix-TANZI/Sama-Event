@@ -90,7 +90,7 @@ public class ParticipantController {
     }
 
     @FXML
-    void organisateurs(ActionEvent event) {
+    void Organisateurs(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrganisateurUI.fxml"));
             Parent root = fxmlLoader.load();

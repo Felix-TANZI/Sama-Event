@@ -67,7 +67,7 @@
                         </image>
                     </ImageView>
                 </graphic></Button>
-            <Button fx:id="boutonOrganisateurs" onAction="#organisateurs" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Organisateurs">
+            <Button fx:id="boutonOrganisateurs" onAction="#Organisateurs" prefWidth="150" style="-fx-background-color: #dfe3ee;" text="Organisateurs">
                 <graphic>
                     <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                         <image>
