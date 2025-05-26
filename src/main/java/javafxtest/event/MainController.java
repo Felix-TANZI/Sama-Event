@@ -11,6 +11,8 @@ package javafxtest.event;
    Linkedin : Felix TANZI
 */
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -59,7 +62,35 @@ public class MainController {
     private TableColumn<?, ?> nomTableColonne;
 
     @FXML
-    private TableView<?> tableViewEvenement;
+    private TableView<Evenement> tableViewEvenement;
+
+    @FXML
+    public void initialize() {
+        // 1. Configurer les colonnes de la TableView
+        nomTableColonne.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        dateTableColonne.setCellValueFactory(new PropertyValueFactory<>("date"));
+        lieuTableColonne.setCellValueFactory(new PropertyValueFactory<>("lieu"));
+
+        // 2. Charger les données au démarrage
+        chargerDonnees();
+    }
+
+    private void chargerDonnees() {
+        try {
+            // 3. Charger depuis le fichier JSON
+            GestionEvenements.getInstance().chargement("evenements.json");
+
+            // 4. Remplir la TableView
+            ObservableList<Evenement> events = FXCollections.observableArrayList(
+                    GestionEvenements.getInstance().getEvenements().values()
+            );
+            tableViewEvenement.setItems(events);
+
+        } catch (Exception e) {
+            System.err.println("Erreur lors du chargement: " + e.getMessage());
+
+        }
+    }
 
     @FXML
     void AjoutEvenement(ActionEvent event) {

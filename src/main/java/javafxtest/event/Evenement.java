@@ -11,10 +11,18 @@ package javafxtest.event;
    Linkedin : Felix TANZI
 */
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Concert.class, name = "concert"),
+        @JsonSubTypes.Type(value = Conference.class, name = "conference")
+})
 
 public abstract class Evenement {
     protected String idEvenement;
@@ -23,6 +31,7 @@ public abstract class Evenement {
     protected String lieu;
     protected int capaciteMax;
     protected List<Participant> participants = new ArrayList<>();
+
 
     public Evenement(String idEvenement, String nom, LocalDateTime date, String lieu, int capaciteMax){
         this.idEvenement = idEvenement;
@@ -93,4 +102,5 @@ public abstract class Evenement {
     public void setParticipants(List<Participant> participants) {
         this.participants = participants;
     }
+
 }

@@ -13,12 +13,7 @@ package javafxtest.event;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 public class AjoutEvenementController {
@@ -95,6 +90,24 @@ public class AjoutEvenementController {
 
     @FXML
     void enregistrer(ActionEvent event) {
+        try {
+            // Sauvegarder dans un fichier JSON
+            GestionEvenements.getInstance().sauvegarde("evenements.json");
+
+            // Afficher un message de confirmation
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Sauvegarde réussie");
+            alert.setHeaderText(null);
+            alert.setContentText("Les événements ont été sauvegardés avec succès!");
+            alert.showAndWait();
+        } catch (Exception e) {
+            // Gérer les erreurs
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur de sauvegarde");
+            alert.setHeaderText(null);
+            alert.setContentText("Erreur lors de la sauvegarde: " + e.getMessage());
+            alert.showAndWait();
+        }
 
     }
 
@@ -108,6 +121,27 @@ public class AjoutEvenementController {
 
     }
 
+    @FXML
+    void charger(ActionEvent event) {
+        try {
+            // Charger depuis un fichier JSON
+            GestionEvenements.getInstance().chargement("evenements.json");
+
+            // Afficher un message de confirmation
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Chargement réussi");
+            alert.setHeaderText(null);
+            alert.setContentText("Les événements ont été chargés avec succès!");
+            alert.showAndWait();
+        } catch (Exception e) {
+            // Gérer les erreurs
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur de chargement");
+            alert.setHeaderText(null);
+            alert.setContentText("Erreur lors du chargement: " + e.getMessage());
+            alert.showAndWait();
+        }
+    }
 
     @FXML
     public void initialize() {

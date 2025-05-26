@@ -12,7 +12,11 @@ package javafxtest.event;
 */
 
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import java.time.LocalDateTime;
+
+@JsonTypeName("concert")
 
 public class Concert extends Evenement {
     private String artiste;

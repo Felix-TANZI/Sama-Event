@@ -12,12 +12,25 @@ package javafxtest.event;
 */
 
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+
+import java.io.IOException;
 
 public class GestionEvenements {
     private static GestionEvenements instance;
     private Map<String, Evenement> evenements = new HashMap<>();
+
+    public Map<String, Evenement> getEvenements() {
+        return evenements;
+    }
+
 
     public static synchronized GestionEvenements getInstance() {
         if (instance == null) {
@@ -40,6 +53,35 @@ public class GestionEvenements {
         }
         evenements.put(evenement.getIdEvenement(), evenement);
         return true;
+    }
+
+    public void sauvegarde(String testSerial) {
+        try {
+            Serialisation.saveToJson(this, testSerial);
+            System.out.println("Sauvegarde réussie dans " + testSerial);
+        } catch (IOException e) {
+            System.err.println("Erreur lors de la sauvegarde: " + e.getMessage());
+        }
+    }
+
+    public void chargement(String testSerial) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
+            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+            mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+
+            Map<String, Evenement> events = mapper.readValue(
+                    new File(testSerial),
+                    new TypeReference<Map<String, Evenement>>() {}
+            );
+
+            this.evenements.clear();
+            this.evenements.putAll(events);
+        } catch (IOException e) {
+            throw new RuntimeException("Échec du chargement: " + e.getMessage(), e);
+        }
     }
 
 }

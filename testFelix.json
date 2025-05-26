@@ -1,0 +1,22 @@
+[ "java.util.HashMap", {
+  "1" : [ "javafxtest.event.Concert", {
+    "idEvenement" : "1",
+    "nom" : "Concert Rock",
+    "date" : "2025-05-26T23:47:31.1698281",
+    "lieu" : "Stade",
+    "capaciteMax" : 1000,
+    "participants" : [ "java.util.ArrayList", [ ] ],
+    "artiste" : "Tanzi Rock",
+    "genreMusical" : "Rock"
+  } ],
+  "2" : [ "javafxtest.event.Conference", {
+    "idEvenement" : "2",
+    "nom" : "Conférence Tech",
+    "date" : "2025-05-27T23:47:31.1708258",
+    "lieu" : "Salle A",
+    "capaciteMax" : 200,
+    "participants" : [ "java.util.ArrayList", [ ] ],
+    "theme" : "Technologie",
+    "intervenants" : [ "java.util.ArrayList", [ ] ]
+  } ]
+} ]

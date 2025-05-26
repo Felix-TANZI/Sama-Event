@@ -11,10 +11,13 @@ package javafxtest.event;
    Linkedin : Felix TANZI
 */
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonTypeName("conference")
 
 public class Conference extends Evenement {
     private String theme;
