@@ -12,6 +12,7 @@ package javafxtest.event;
 */
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -26,9 +27,10 @@ public class Serialisation {
             .registerModule(new JavaTimeModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
             .enable(SerializationFeature.INDENT_OUTPUT)
-            .enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-    public static void saveToJson(GestionEvenements gestion, String filename) throws IOException {
-        mapper.writeValue(new File(filename), gestion.getEvenements());
+            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+    public static void saveToJson(GestionEvenements gestion, String testSerial) throws IOException {
+        mapper.writeValue(new File(testSerial), gestion.getEvenements());
     }
 
     public static Map<String, Evenement> loadFromJson(String testSerial) throws IOException {

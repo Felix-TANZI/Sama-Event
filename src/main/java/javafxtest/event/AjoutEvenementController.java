@@ -15,6 +15,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class AjoutEvenementController {
 
@@ -91,24 +97,50 @@ public class AjoutEvenementController {
     @FXML
     void enregistrer(ActionEvent event) {
         try {
-            // Sauvegarder dans un fichier JSON
+            // Créer l'événement selon le type sélectionné
+            Evenement nouvelEvenement;
+            String type = comboBoxType.getValue();
+
+            if ("Concert".equals(type)) {
+                nouvelEvenement = new Concert(
+                        generateId(), // Méthode à implémenter pour générer un ID unique
+                        nomEvenement.getText(),
+                        LocalDateTime.of(dateEvenement.getValue(), LocalTime.now()),
+                        LieuEvenement.getText(),
+                        Integer.parseInt(capMax.getText()),
+                        nomArtiste.getText(),
+                        comboBoxGenre.getValue().toString()
+                );
+            } else {
+                nouvelEvenement = new Conference(
+                        generateId(),
+                        nomEvenement.getText(),
+                        LocalDateTime.of(dateEvenement.getValue(), LocalTime.now()),
+                        LieuEvenement.getText(),
+                        Integer.parseInt(capMax.getText()),
+                        themeConference.getText(),
+                        new ArrayList<>() // Liste vide d'intervenants
+                );
+            }
+
+            // Ajouter à la gestion
+            GestionEvenements.getInstance().AjoutEvenement(nouvelEvenement);
+
+            // Sauvegarder
             GestionEvenements.getInstance().sauvegarde("evenements.json");
 
-            // Afficher un message de confirmation
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Sauvegarde réussie");
-            alert.setHeaderText(null);
-            alert.setContentText("Les événements ont été sauvegardés avec succès!");
-            alert.showAndWait();
-        } catch (Exception e) {
-            // Gérer les erreurs
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur de sauvegarde");
-            alert.setHeaderText(null);
-            alert.setContentText("Erreur lors de la sauvegarde: " + e.getMessage());
-            alert.showAndWait();
-        }
+            showAlert(Alert.AlertType.INFORMATION, "Succès", "Événement enregistré");
 
+            // Fermer la fenêtre
+            ((Stage) bouton_Enregistrer.getScene().getWindow()).close();
+
+        } catch (Exception e) {
+            showAlert(Alert.AlertType.ERROR, "Erreur", e.getMessage());
+        }
+    }
+
+    private String generateId() {
+        return UUID.randomUUID().toString();
     }
 
     @FXML
@@ -165,6 +197,14 @@ public class AjoutEvenementController {
                 conferenceFields.setVisible(false);
             }
         });
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }

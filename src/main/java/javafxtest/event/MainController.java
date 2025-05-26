@@ -99,10 +99,12 @@ public class MainController {
             Parent root = fxmlLoader.load();
 
             Stage stage = new Stage();
-            stage.setTitle("Ajouter un participant");
+            stage.setTitle("Ajouter un evenement");
             stage.setScene(new Scene(root));
             stage.setResizable(false); // optionnel
-            stage.show();
+            stage.showAndWait();
+
+            chargerDonnees();
 
         } catch (IOException e) {
             e.printStackTrace();

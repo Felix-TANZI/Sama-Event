@@ -1,1 +1,12 @@
-[ "java.util.HashMap", { } ]
+{
+  "3f6d65ab-f5c0-4ab4-a660-4d4e205fd166" : {
+    "idEvenement" : "3f6d65ab-f5c0-4ab4-a660-4d4e205fd166",
+    "nom" : "Safara",
+    "date" : "2025-05-01T00:39:09.5719321",
+    "lieu" : "nkolfoulou",
+    "capaciteMax" : 100,
+    "participants" : [ ],
+    "artiste" : "Pingue",
+    "genreMusical" : "Rock"
+  }
+}
