@@ -66,19 +66,8 @@ public class GestionEvenements {
 
     public void chargement(String testSerial) {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new JavaTimeModule());
-            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-            mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-
-            Map<String, Evenement> events = mapper.readValue(
-                    new File(testSerial),
-                    new TypeReference<Map<String, Evenement>>() {}
-            );
-
-            this.evenements.clear();
-            this.evenements.putAll(events);
+            this.evenements = Serialisation.loadFromJson(testSerial);
+            System.out.println("Chargement réussi depuis " + testSerial);
         } catch (IOException e) {
             throw new RuntimeException("Échec du chargement: " + e.getMessage(), e);
         }

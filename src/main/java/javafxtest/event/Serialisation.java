@@ -29,8 +29,10 @@ public class Serialisation {
             .enable(SerializationFeature.INDENT_OUTPUT)
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
+
     public static void saveToJson(GestionEvenements gestion, String testSerial) throws IOException {
-        mapper.writeValue(new File(testSerial), gestion.getEvenements());
+        mapper.writerFor(new TypeReference<Map<String, Evenement>>() {})
+                .writeValue(new File(testSerial), gestion.getEvenements());
     }
 
     public static Map<String, Evenement> loadFromJson(String testSerial) throws IOException {
