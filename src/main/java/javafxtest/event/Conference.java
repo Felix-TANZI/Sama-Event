@@ -11,6 +11,8 @@ package javafxtest.event;
    Linkedin : Felix TANZI
 */
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.time.LocalDateTime;
@@ -23,10 +25,24 @@ public class Conference extends Evenement {
     private String theme;
     private List<Intervenant> intervenants;
 
-    public Conference(String idEvenement, String nom, LocalDateTime date, String lieu, int capaciteMax, String theme, List<Intervenant> intervenants) {
+    // Constructeur par défaut pour Jackson
+    public Conference() {
+        super();
+        this.intervenants = new ArrayList<>();
+    }
+
+    // Constructeur pour Jackson avec annotations
+    @JsonCreator
+    public Conference(@JsonProperty("idEvenement") String idEvenement,
+                      @JsonProperty("nom") String nom,
+                      @JsonProperty("date") LocalDateTime date,
+                      @JsonProperty("lieu") String lieu,
+                      @JsonProperty("capaciteMax") int capaciteMax,
+                      @JsonProperty("theme") String theme,
+                      @JsonProperty("intervenants") List<Intervenant> intervenants) {
         super(idEvenement, nom, date, lieu, capaciteMax);
         this.theme = theme;
-        this.intervenants = new ArrayList<>();
+        this.intervenants = intervenants != null ? intervenants : new ArrayList<>();
     }
 
     public String getTheme() {

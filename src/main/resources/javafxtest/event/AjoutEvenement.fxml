@@ -159,9 +159,14 @@
                                             <String fx:value="Rock" />
                                             <String fx:value="Pop" />
                                             <String fx:value="Jazz" />
-                                            <String fx:value="Classique" />
-                                            <String fx:value="Électronique" />
-                                            <String fx:value="Hip-Hop" />
+                                            <String fx:value="Rap" />
+                                            <String fx:value="Mbole" />
+                                            <String fx:value="RnB" />
+                                            <String fx:value="Afrobeat" />
+                                            <String fx:value="Makossa" />
+                                            <String fx:value="Bikutsi" />
+                                            <String fx:value="Bend-skin" />
+                                            <String fx:value="Afrotrap" />
                                             <String fx:value="Autre" />
                                         </FXCollections>
                                     </items>

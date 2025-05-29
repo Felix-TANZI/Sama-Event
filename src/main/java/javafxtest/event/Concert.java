@@ -13,6 +13,8 @@ package javafxtest.event;
 
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
 
@@ -22,7 +24,20 @@ public class Concert extends Evenement {
     private String artiste;
     private String genreMusical;
 
-    public Concert(String idEvenement,String nom, LocalDateTime date, String lieu, int capaciteMax, String artiste, String genreMusical) {
+    // Constructeur par défaut pour Jackson
+    public Concert() {
+        super();
+    }
+
+    // Constructeur pour Jackson avec annotations
+    @JsonCreator
+    public Concert(@JsonProperty("idEvenement") String idEvenement,
+                   @JsonProperty("nom") String nom,
+                   @JsonProperty("date") LocalDateTime date,
+                   @JsonProperty("lieu") String lieu,
+                   @JsonProperty("capaciteMax") int capaciteMax,
+                   @JsonProperty("artiste") String artiste,
+                   @JsonProperty("genreMusical") String genreMusical) {
         super(idEvenement, nom, date, lieu, capaciteMax);
         this.artiste = artiste;
         this.genreMusical = genreMusical;

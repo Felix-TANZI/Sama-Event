@@ -13,6 +13,8 @@ package javafxtest.event;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -32,6 +34,11 @@ public abstract class Evenement {
     protected int capaciteMax;
     protected List<Participant> participants = new ArrayList<>();
 
+    // Constructeur par défaut pour Jackson
+    public Evenement() {
+        this.participants = new ArrayList<>();
+    }
+
 
     public Evenement(String idEvenement, String nom, LocalDateTime date, String lieu, int capaciteMax){
         this.idEvenement = idEvenement;
@@ -39,6 +46,22 @@ public abstract class Evenement {
         this.date = date;
         this.lieu = lieu;
         this.capaciteMax = capaciteMax;
+        this.participants = new ArrayList<>();
+    }
+
+    @JsonCreator
+    public Evenement(@JsonProperty("idEvenement") String idEvenement,
+                     @JsonProperty("nom") String nom,
+                     @JsonProperty("date") LocalDateTime date,
+                     @JsonProperty("lieu") String lieu,
+                     @JsonProperty("capaciteMax") int capaciteMax,
+                     @JsonProperty("participants") List<Participant> participants) {
+        this.idEvenement = idEvenement;
+        this.nom = nom;
+        this.date = date;
+        this.lieu = lieu;
+        this.capaciteMax = capaciteMax;
+        this.participants = participants != null ? participants : new ArrayList<>();
     }
 
     public boolean AjoutParticipant(Participant participant) {

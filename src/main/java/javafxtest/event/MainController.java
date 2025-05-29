@@ -81,15 +81,22 @@ public class MainController {
             GestionEvenements.getInstance().chargement("evenements.json");
 
             // 4. Remplir la TableView
-            ObservableList<Evenement> events = FXCollections.observableArrayList(
-                    GestionEvenements.getInstance().getEvenements().values()
-            );
-            tableViewEvenement.setItems(events);
+            rafraichissement();
 
         } catch (Exception e) {
             System.err.println("Erreur lors du chargement: " + e.getMessage());
-
+            // Même en cas d'erreur, on affiche ce qu'on a en mémoire
+            rafraichissement();
         }
+    }
+
+    //Rafraissemnet du tableau pour permettre d'afficher les evenements
+    private void rafraichissement() {
+        ObservableList<Evenement> events = FXCollections.observableArrayList(
+                GestionEvenements.getInstance().getEvenements().values()
+        );
+        tableViewEvenement.setItems(events);
+        tableViewEvenement.refresh(); // Force le rafraîchissement
     }
 
     @FXML
@@ -102,9 +109,9 @@ public class MainController {
             stage.setTitle("Ajouter un evenement");
             stage.setScene(new Scene(root));
             stage.setResizable(false); // optionnel
-            stage.showAndWait();
+            stage.showAndWait();  // Permet d'attendre que la fenetre d'ajout se ferme avant de mettre a jour le tableau a nouveau
 
-            chargerDonnees();
+            rafraichissement();
 
         } catch (IOException e) {
             e.printStackTrace();

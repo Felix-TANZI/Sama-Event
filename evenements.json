@@ -1,12 +1,24 @@
 {
-  "3f6d65ab-f5c0-4ab4-a660-4d4e205fd166" : {
-    "idEvenement" : "3f6d65ab-f5c0-4ab4-a660-4d4e205fd166",
-    "nom" : "Safara",
-    "date" : "2025-05-01T00:39:09.5719321",
-    "lieu" : "nkolfoulou",
-    "capaciteMax" : 100,
-    "participants" : [ ],
-    "artiste" : "Pingue",
-    "genreMusical" : "Rock"
+  "f1957322-2afc-4780-b634-c80d67bce78e" : {
+    "type" : "concert",
+    "idEvenement" : "f1957322-2afc-4780-b634-c80d67bce78e",
+    "nom" : "safara event",
+    "date" : "2025-06-01T07:56:04.6947654",
+    "lieu" : "ekounou",
+    "capaciteMax" : 300,
+    "artiste" : "JQ",
+    "genreMusical" : "Pop",
+    "participants" : [ ]
+  },
+  "b9f1544f-f188-4fc1-88e1-dd0af4188196" : {
+    "type" : "concert",
+    "idEvenement" : "b9f1544f-f188-4fc1-88e1-dd0af4188196",
+    "nom" : "YA-FE",
+    "date" : "2025-06-08T08:55:37.202646",
+    "lieu" : "Palais des Congres",
+    "capaciteMax" : 5000,
+    "artiste" : "Karmis KMD",
+    "genreMusical" : "Rock",
+    "participants" : [ ]
   }
 }
