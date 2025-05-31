@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
+        @JsonSubTypes.Type(value = Participant.class, name = "participant"),
         @JsonSubTypes.Type(value = Organisateur.class, name = "organisateur")
 })
 
@@ -62,5 +63,14 @@ public class Participant {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Participant{" +
+                "id='" + idParticipant + '\'' +
+                ", nom='" + nom + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
