@@ -11,13 +11,30 @@ package javafxtest.event;
    Linkedin : Felix TANZI
 */
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Organisateur.class, name = "organisateur")
+})
 
 public class Participant {
     protected String idParticipant;
     protected String nom;
     protected String email;
 
-    public Participant(String idParticipant, String nom, String email) {
+    // Constructeur par défaut pour Jackson
+    public Participant() {
+    }
+
+    // Constructeur pour Jackson avec annotations
+    @JsonCreator
+    public Participant(@JsonProperty("idParticipant") String idParticipant,
+                       @JsonProperty("nom") String nom,
+                       @JsonProperty("email") String email) {
         this.idParticipant = idParticipant;
         this.nom = nom;
         this.email = email;

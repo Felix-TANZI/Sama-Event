@@ -89,9 +89,33 @@ public class AjoutEvenementController {
 
     }
 
+    // Lorque le bouton annuler est selectionne lorsqu'on a saisi un des champs, une boite de dialogue s'ouvre automatiquement pour avoir la confirmaton si on ferme ou pas.
     @FXML
     void annuler(ActionEvent event) {
+        // Verification des champs remplis
+        boolean champsRemplis = !nomEvenement.getText().isEmpty()
+                || (dateEvenement.getValue() != null)
+                || !LieuEvenement.getText().isEmpty()
+                || !capMax.getText().isEmpty()
+                || (comboBoxType.getValue() != null);
 
+        if (champsRemplis) {
+            // Affichage d'une boite de dialogue pour une confirmation si des champs sont remplis
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmation.setTitle("Confirmation d'annulation");
+            confirmation.setHeaderText("Données non enregistrées");
+            confirmation.setContentText("Êtes-vous sûr de vouloir annuler ? Les données saisies seront perdues.");
+
+            ButtonType result = confirmation.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (result != ButtonType.OK) {
+                return; // Ne ferme pas si l'utilisateur annule
+            }
+        }
+
+        // Fermeture de la fenêtre
+        Stage stage = (Stage) bouton_Annuler.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

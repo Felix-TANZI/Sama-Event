@@ -6,7 +6,7 @@ Pré-requis 🔧
 - Comprendre le [java](https://fr.wikipedia.org/wiki/Apprentissage_profond)
 ---
 Telechargement d'icons
-- icon [icon](https://fonts.google.com/icons)
+- icon: [icon](https://fonts.google.com/icons)
 ---
 
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNW5zMGgzNDFzZHNtdXEwNmRzcW10NHR6b2RsbThhenUyZjdsNTFoMCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/LeIqgheV7yKJkUaecT/giphy.gif" width="40"> Connectons-nous !

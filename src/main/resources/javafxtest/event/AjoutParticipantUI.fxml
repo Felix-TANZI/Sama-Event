@@ -4,19 +4,27 @@
 <!--        @Auteur : NZIKO Felix Andre-->
 <!--        Email : tanzifelix@gmail.com-->
 <!--        version : beta 1.0-->
-
 <!--        Instagram : felix.tanzi-->
 <!--        GitHub : Felix-TANZI-->
 <!--        Linkedin : Felix TANZI-->
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx"  xmlns:fx="http://javafx.com/fxml" fx:controller="javafxtest.event.AjoutParticipantController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxtest.event.AjoutParticipantController">
     <top>
-        <HBox style="-fx-background-color: #303F9F;" alignment="CENTER">
+        <HBox alignment="CENTER" style="-fx-background-color: #303F9F;">
             <children>
                 <Label text="Inscription d'un participant" textFill="WHITE">
                     <font>
@@ -34,8 +42,8 @@
             <children>
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <children>
-                        <Label text="Événement:" prefWidth="120.0" />
-                        <ComboBox prefWidth="350.0" promptText="Sélectionnez un événement" HBox.hgrow="ALWAYS" />
+                        <Label prefWidth="120.0" text="Événement:" />
+                        <ComboBox fx:id="comboBoxSelectEvnent" prefWidth="350.0" promptText="Sélectionnez un événement" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
                 <Separator />
@@ -46,34 +54,34 @@
                 </Label>
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <children>
-                        <Label text="Type:" prefWidth="120.0" />
-                        <RadioButton mnemonicParsing="false" selected="true" text="Participant standard">
+                        <Label prefWidth="120.0" text="Type:" />
+                        <RadioButton fx:id="participantRadioBouton" mnemonicParsing="false" selected="true" text="Participant standard">
                             <toggleGroup>
                                 <ToggleGroup fx:id="typeParticipant" />
                             </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Organisateur" toggleGroup="$typeParticipant" />
+                        <RadioButton fx:id="organisateurRadioBouton" mnemonicParsing="false" text="Organisateur" toggleGroup="$typeParticipant" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <children>
-                        <Label text="ID:" prefWidth="120.0" />
-                        <TextField promptText="Identifiant unique" HBox.hgrow="ALWAYS" />
+                        <Label prefWidth="120.0" text="ID:" />
+                        <TextField fx:id="idTextFiel" promptText="Identifiant unique" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <children>
-                        <Label text="Nom:" prefWidth="120.0" />
-                        <TextField promptText="Nom complet" HBox.hgrow="ALWAYS" />
+                        <Label prefWidth="120.0" text="Nom:" />
+                        <TextField fx:id="nomTextFiiel" promptText="Nom complet" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <children>
-                        <Label text="Email:" prefWidth="120.0" />
-                        <TextField promptText="Adresse email" HBox.hgrow="ALWAYS" />
+                        <Label prefWidth="120.0" text="Email:" />
+                        <TextField fx:id="emailTextField" promptText="Adresse email" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
-                <CheckBox mnemonicParsing="false" text="Envoyer une notification de confirmation par email">
+                <CheckBox fx:id="checkBoxNotif" mnemonicParsing="false" onAction="#notif_checkBox" text="Envoyer une notification de confirmation par email">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
@@ -87,12 +95,12 @@
     <bottom>
         <HBox alignment="CENTER_RIGHT" spacing="15.0" BorderPane.alignment="CENTER">
             <children>
-                <Button mnemonicParsing="false" style="-fx-background-color: #f44336;" text="Annuler" textFill="WHITE">
+                <Button fx:id="boutonAnnuler" mnemonicParsing="false" onAction="#bouton_annuler" style="-fx-background-color: #f44336;" text="Annuler" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: #4CAF50;" text="Inscrire" textFill="WHITE">
+                <Button fx:id="boutonInscrire" mnemonicParsing="false" onAction="#bouton_inscrire" style="-fx-background-color: #4CAF50;" text="Inscrire" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
